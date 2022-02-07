@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>100 Days of Code with HERE</title>
+        <meta name="viewport" charset="utf-8" content="initial-scale=1.0, width=device-width" />
+        <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript"></script>
+        <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript"></script>
+        <script src="creds.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div id="mapContainer" style="width: 100vw; height: 80vh; align-self: center; background-color: aqua;"></div>
+    </body>
+    <script>
+        var platform = new H.service.Platform({
+            'apikey': window.hereCreds.JSKEY
+        });
+
+        var myPosition = {lat:39.19684,lng:-120.23608};
+
+        var defaultLayers = platform.createDefaultLayers();
+
+        var map = new H.Map(
+            document.getElementById('mapContainer'),
+            defaultLayers.vector.normal.map,
+            {
+                zoom: 10,
+                center: myPosition
+            });
+        
+    </script>
+</html>
